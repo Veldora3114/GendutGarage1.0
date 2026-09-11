@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  gendut-garage-web:
+    container_name: gendut_garage_web
+    build:
+      context: .
+      dockerfile: Dockerfile
+      # Jika ingin menggunakan build instan dari build/web lokal, ganti ke:
+      # dockerfile: Dockerfile.quick
+      args:
+        - SUPABASE_URL=https://pmspsgjhndvyzwojhssz.supabase.co
+        - SUPABASE_ANON_KEY=sb_publishable_fVfdx-dLYWMJy_3i_b9L4A_rYQ5ETSI
+    ports:
+      - "8080:80"
+    restart: unless-stopped

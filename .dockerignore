@@ -1,0 +1,30 @@
+# Git
+.git
+.gitignore
+
+# IDE & Editor
+.idea/
+.vscode/
+*.iml
+
+# Flutter & Dart builds
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+build/
+
+# Mobile & Desktop Native Platforms (tidak diperlukan untuk build web)
+android/
+ios/
+linux/
+macos/
+windows/
+test/
+
+# Dokumen & Skripsi
+*.docx
+*.drawio
+*.drawio.*
+*.png
+*.tmp
+*.py

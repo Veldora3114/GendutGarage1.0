@@ -1,4 +1,4 @@
-import 'dart:io' show Platform;
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:file_picker/file_picker.dart';
@@ -5255,7 +5255,7 @@ class _InvoiceDetailSheetState extends State<_InvoiceDetailSheet> {
                   final messenger = ScaffoldMessenger.of(context);
                   try {
                     final bytes = await buildInvoicePdfBytes(summary: summary);
-                    if (Platform.isAndroid) {
+                    if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android) {
                       messenger.showSnackBar(
                         const SnackBar(
                           content: Text(
