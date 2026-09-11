@@ -1,0 +1,34 @@
+================================================================================
+PETUNJUK MENJALANKAN PROGRAM DI PC LAB BERSAMA (DOCKER)
+Aplikasi : Gendut Garage (Sistem Informasi Manajemen Bengkel)
+Penyusun : Raihan Alfisa Saugi
+NPM      : 4522210037
+Port Lab : 8037 (8000 + 37)
+================================================================================
+
+A. JIKA MENJALANKAN VIA DOCKER COMPOSE:
+1. Buka terminal (PowerShell / CMD) di dalam folder ini.
+2. Jalankan perintah:
+   docker compose -p raihan up -d
+
+3. Buka browser di PC lab di alamat:
+   http://localhost:8037
+
+4. Setelah selesai demo dosen, matikan kontainer dengan:
+   docker compose -p raihan down
+
+--------------------------------------------------------------------------------
+B. JIKA MENJALANKAN VIA DOCKER TAR (OFFLINE DARI FLASHDISK):
+1. Muat image:
+   docker load -i gendut-garage.tar
+2. Jalankan:
+   docker run -d -p 8037:80 --name gendut_raihan veldora3114/gendut-garage:1.0
+3. Buka:
+   http://localhost:8037
+
+--------------------------------------------------------------------------------
+C. INFORMASI DATABASE (SUPABASE / POSTGRESQL):
+Skrip DDL dan data awal sudah disertakan lengkap di dalam folder:
+- database/GendutGarage_Database_Schema.sql
+- database/GendutGarage_Seed_Data.sql
+================================================================================

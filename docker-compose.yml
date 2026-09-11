@@ -1,16 +1,27 @@
 version: '3.8'
 
+# ==============================================================================
+# Docker Compose - Gendut Garage (Khusus PC Lab Kampus)
+# Formula Port Mahasiswa: 8000 + 2 Digit Terakhir NPM (NPM 4522210037 -> 8037)
+# Agar tidak bentrok di PC lab, jalankan dengan flag:
+#   docker compose -p raihan up -d
+# ==============================================================================
+
 services:
-  gendut-garage-web:
-    container_name: gendut_garage_web
+  web:
+    # 1. Pilihan Image Jadi dari Docker Hub (Tinggal pull di PC Lab tanpa build):
+    image: veldora3114/gendut-garage:1.0
+
+    # 2. Atau Build Sendiri (jika file dibawa utuh ke PC Lab):
     build:
       context: .
-      dockerfile: Dockerfile
-      # Jika ingin menggunakan build instan dari build/web lokal, ganti ke:
-      # dockerfile: Dockerfile.quick
+      dockerfile: Dockerfile.quick
       args:
         - SUPABASE_URL=https://pmspsgjhndvyzwojhssz.supabase.co
         - SUPABASE_ANON_KEY=sb_publishable_fVfdx-dLYWMJy_3i_b9L4A_rYQ5ETSI
+
+    # Port unik mahasiswa (NPM 4522210037 -> Port 8037):
     ports:
-      - "8080:80"
+      - "8037:80"
+
     restart: unless-stopped
